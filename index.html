@@ -15,6 +15,12 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <!-- gsap 적용 -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollToPlugin.min.js"></script>
+    <script src="./js/gsap.js"></script>
   </head>
   <body>
     <!-- 헤더 영역 -->
@@ -51,6 +57,10 @@
         <div class="right_translation">
           <a href="#">KR</a>
           <a href="#">EN</a>
+          <div class="menu_btn">
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
     </header>
@@ -74,14 +84,18 @@
             </p>
           </div>
           <div class="line_wrap">
-            <div class="line_out"></div>
-            <div class="line_in"></div>
+            <div class="line_box">
+              <div class="line_out"></div>
+              <div class="line_in"></div>
+            </div>
             <div class="line_in_left_text">
               <span>TARANTULA NEBULA</span>
             </div>
             <div class="line_in_right_text">
               <span>2022-09-06</span>
-              <span>IMAGE CREDIT</span>
+              <div class="effect_box">
+                <p>IMAGE CREDIT</p>
+              </div>
               <span>NASA, ESA, CSA, STSCI,<br />WEBB ERO PRODUCTION TEAM</span>
             </div>
             <div class="line_in_bottom_right_img">
@@ -112,11 +126,16 @@
           <img src="./img/sec1/se1_bg_shadow.webp" alt="" />
           <div class="sec1_main_img"></div>
         </div>
-        <div class="sec1_title">
-          <h2>
-            <span>Space Hub</span>는 우주를 향한 지름길을 찾아<br />
-            보다 혁신적인 발사체를 연구하고 있습니다.
-          </h2>
+        <div class="sec1_title scroll_text_event">
+          <span class="opactiy_box">
+            <h2>
+              <span class="hanwha_font">Space Hub</span>는 우주를 향한 지름길을
+              찾아
+            </h2>
+          </span>
+          <span class="opactiy_box">
+            <h2>보다 혁신적인 발사체를 연구하고 있습니다.</h2>
+          </span>
           <p>
             대한민국 독자 개발 로켓 누리호는 2021년 1차 발사를 시작으로
             2027년<br />
@@ -124,9 +143,11 @@
             대형위성을<br />
             수송하고, 더 먼 우주와 달을 탐사할 예정입니다.
           </p>
-          <a href="#">
-            <p>발사체 자세히 보기</p>
-          </a>
+          <span class="sec1_btn">
+            <a href="#">
+              <p>발사체 자세히 보기</p>
+            </a>
+          </span>
         </div>
       </section>
       <!-- 섹션2 지구 -->
@@ -138,28 +159,33 @@
               autoplay
               muted
               loop
+              class="sec2_earth"
             ></video>
             <video
               src="./img/video/sec2_earth-sat.webm"
               autoplay
               muted
               loop
+              class="sec2_earth_sat"
             ></video>
           </div>
-          <div class="sec2_title">
-            <h2>
-              저궤도 위성망 기술력으로 <br />
-              사람과 사람을 연결합니다.
-            </h2>
-            <p>
-              국내 최초, 순수 우리기술로 개발한 민간 주도 상용 지구관측
-              위성이<br />
-              2023년 자체발사와 교신에 성공했습니다.
-            </p>
+        </div>
+        <div class="sec2_title scroll_text_event">
+          <span class="opactiy_box">
+            <h2>저궤도 위성망 기술력으로</h2>
+          </span>
+          <span class="opactiy_box">
+            <h2>사람과 사람을 연결합니다.</h2>
+          </span>
+          <p>
+            국내 최초, 순수 우리기술로 개발한 민간 주도 상용 지구관측 위성이<br />
+            2023년 자체발사와 교신에 성공했습니다.
+          </p>
+          <span class="sec2_btn">
             <a href="#">
               <p>위성 자세히 보기</p>
             </a>
-          </div>
+          </span>
         </div>
       </section>
       <!-- 섹션 3 -->
@@ -167,19 +193,24 @@
         <div class="sec3_space_bg">
           <img src="./img/sec3/sec3_img1.webp" alt="우주사진" />
         </div>
-        <div class="sec3_title">
-          <h2>
-            독자 기술 확보하여 우주를 탐사해<br />
-            인류의 영토를 확장합니다.
-          </h2>
+        <div class="sec3_title scroll_text_event">
+          <span class="opactiy_box">
+            <h2>독자 기술 확보하여 우주를 탐사해</h2>
+          </span>
+          <span class="opactiy_box">
+            <h2>인류의 영토를 확장합니다.</h2>
+          </span>
           <p>
-            대한민국 최초 달 궤도선 다누리 궤도 진입 성공 (2022년)<br />
-            세계 7번째 달 탐사 국가가 되어 우주강국으로 거듭나도록
-            기여하였습니다.
+            대한민국 최초 달 궤도선 다누리<br />
+            궤도 진입 성공 (2022년)<br />
+            세계 7번째 달 탐사 국가가 되어<br />
+            우주강국으로 거듭나도록 기여하였습니다.
           </p>
-          <a href="#">
-            <p>탐사 자세히 보기</p>
-          </a>
+          <span class="sec3_btn">
+            <a href="#">
+              <p>탐사 자세히 보기</p>
+            </a>
+          </span>
         </div>
       </section>
       <!-- 섹션4 -->
@@ -192,48 +223,67 @@
             <span>MOON</span>
           </div>
         </div>
-        <div class="sec4_text_wrap">
-          <div class="sec4_text_1">
-            <img
-              src="./img/logo_icon/exploration-spacekids-logo.svg"
-              alt="우주의 조약돌"
-            />
+        <strong class=".sec4_text_wrap">
+          <div class="sec4_text_1 scroll_text_evnet">
+            <span class="opactiy_box">
+              <img
+                src="./img/logo_icon/exploration-spacekids-logo.svg"
+                alt="우주의 조약돌"
+              />
+            </span>
           </div>
-          <div class="sec4_text_2">
-            <h3>
-              우주의 조약돌에 참가하는 학생들은 많은 과학자들의<br />우주 인문학
-              강연을 직접 듣고, 상상력을 키워갑니다.
-            </h3>
+          <div class="sec4_text_2 scroll_text_event">
+            <span class="opactiy_box">
+              <h2>
+                우주의 조약돌에 참가하는 학생들은 많은 과학자들의<br />우주
+                인문학 강연을 직접 듣고, 상상력을 키워갑니다.
+              </h2>
+            </span>
           </div>
-          <div class="sec4_text_3">
-            <h3>
-              또한 KAIST의 항공우주 공학 현장에서 온 멘토들과 함께<br />
-              학생들의 아이디어를 실현하는 우주 미션 프로젝트를 수행하게 됩니다.
-            </h3>
-            <a href="#">
-              <p>우주의 조약돌 자세히 보기</p>
-            </a>
+          <div class="sec4_text_3 scroll_text_event">
+            <span class="opactiy_box">
+              <h2>
+                또한 KAIST의 항공우주 공학 현장에서 온 멘토들과 함께<br />
+                학생들의 아이디어를 실현하는 우주 미션 프로젝트를 수행하게
+                됩니다.
+              </h2>
+            </span>
+            <span class="sec4_btn">
+              <a href="#">
+                <p>우주의 조약돌 자세히 보기</p>
+              </a>
+            </span>
           </div>
-        </div>
+        </strong>
       </section>
+      <!-- 섹션 5 -->
       <section class="sec5">
         <div class="sec5_bg"></div>
-        <div class="sec5_title">
+        <div class="sec5_title scroll_text_event">
+          <span class="opactiy_box">
+            <h2>
+              <span class="hanwha_font">Space Hub</span>는 한화그룹 우주
+              계열사들의 역량을
+            </h2>
+          </span>
+          <span class="opactiy_box">
+            <h2>한곳에 모은 한화 우주 사업 통합 브랜드입니다.</h2>
+          </span>
+
           <h2>
-            <span>Space Hub</span>는 한화그룹 우주 계열사들의 역량을<br />
-            한곳에 모은 한화 우주 사업 통합 브랜드입니다.
-          </h2>
-          <p>
-            <span>Space Hub</span>는 국내/해외 테그놀로지 리더들과의 전력적
-            협력관계를<br />
+            <span class="hanwha_font">Space Hub</span>는 국내/해외 테그놀로지
+            리더들과의 전력적 협력관계를<br />
             설계해 지구에서 발사체를 띄우고, 위성으로 사람과 사람을 연결하고,<br />
             우주를 탐사해 인류의 영토를 확장하고 있습니다.
-          </p>
-          <a href="#">
-            <p><span>Space Hub</span> 자세히 보기</p>
-          </a>
+          </h2>
+          <span>
+            <a href="#" class="sec4_btn">
+              <p><span>Space Hub</span> 자세히 보기</p>
+            </a>
+          </span>
         </div>
       </section>
+      <!-- 섹션 6 -->
       <section class="sec6">
         <div class="sec6_bg">
           <div class="sec6_video_box">

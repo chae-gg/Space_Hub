@@ -50,6 +50,13 @@
 :root {
   --hanwha-font: "Hanwha";
   --hanwha-gothic-font: "Hanwha_gothic";
+  --color: #ffffff;
+  --border-color: #ffffff71;
+  --bg-color: #ffffff10;
+  --btn-width: 320px;
+  --btn-height: 80px;
+  --angle-gap: 12px;
+  --line-gap: 2.5px;
 }
 
 html,
@@ -185,9 +192,7 @@ image {
   max-width: 100%;
   border: none;
 }
-video {
-  max-width: 100%;
-}
+
 ul,
 ol,
 li {

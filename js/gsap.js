@@ -310,30 +310,185 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   // 섹션 4
 
-  // 섹션 핀고정
+  //  작은 행성들 로테이트 및  첫타이틀 인 아웃
   let tl13 = gsap.timeline({
     scrollTrigger: {
       trigger: ".sec4",
-      start: "top top",
-      end: "+=300%",
+      start: "top 40%",
+      end: "bottom bottom",
+
       scrub: 1,
-      pin: true,
-      markers: true,
     },
   });
+  // 작은 행성 로테이트
+  tl13.from(".sec4_space_wrap", {
+    opacity: 0,
+    rotate: "1deg",
+    ease: "power2.out",
+    duration: 2,
+  });
+  // 첫번쨰 타이틀 나오는 이벤트
+  tl13.from(".sec4_text_1 span img", {
+    opacity: 0,
+    y: 100,
+    duration: 3,
+  });
 
-  //  작은 행성들 로테이트
+  // 섹션 핀고정 및 투번째 타이틀 나오고 들어가는
   let tl14 = gsap.timeline({
     scrollTrigger: {
       trigger: ".sec4",
-      start: "top 50%",
+      start: "top top",
+      end: "+=100% top",
+      scrub: 1,
+      pin: true,
+    },
+  });
+  tl14.to(".sec4_space_wrap", {
+    rotate: "-1deg",
+    ease: "power2.out",
+    duration: 2,
+  });
+  //  첫번째 타이틀 들어가는 이벤트
+  let tl15 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".sec4",
+      start: "top top",
+      end: "bottom 50%",
+      scrub: 1,
+    },
+  });
+  tl15.to({}, { duration: 0.5 });
+  tl15.to(".sec4_text_1 span img", {
+    opacity: 0,
+    y: -100,
+    duration: 2,
+  });
+
+  let tl16 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".sec4",
+      start: "top top",
+      end: "bottom 30%",
+      scrub: 1,
+    },
+  });
+  tl16.from({}, { duration: 1.5 });
+  tl16.from(".sec4_text_2 span h2", {
+    opacity: 0,
+    y: 100,
+    duration: 2,
+  });
+  tl16.to({}, { duration: 2 });
+  tl16.to(".sec4_text_2 span h2", {
+    opacity: 0,
+    y: -100,
+    duration: 2,
+  });
+
+  let tl17 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".sec4",
+      start: "top top",
+      end: "bottom 10%",
+      scrub: 1,
+    },
+  });
+  tl17.from({}, { duration: 1 });
+  tl17.from(".sec4_text_3 span h2", {
+    opacity: 0,
+    y: 100,
+    duration: 2,
+  });
+
+  let tl18 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".sec4",
+      start: "top top",
       end: "bottom top",
       scrub: 1,
     },
   });
-  tl14.from(".sec4_space_wrap", {
+  tl18.from({}, { duration: 1.7 });
+  tl18.from(".sec4_text_3 .sec4_btn", {
     opacity: 0,
-    rotate: "2deg",
-    ease: "power2.out",
+    y: 100,
+    duration: 2,
   });
+
+  // 섹션 5 스크롤 이벤트
+  let tl19 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".sec5",
+      start: "top 50%",
+      end: "10% top",
+      scrub: 1,
+    },
+  });
+  tl19.from(".sec5_title .opactiy_box h2", {
+    opacity: 0,
+    y: 100,
+    duration: 2,
+  });
+
+  let tl20 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".sec5",
+      start: "top 30%",
+      end: "10% top",
+      scrub: 1,
+    },
+  });
+  tl20.from(".sec5_title > p", {
+    opacity: 0,
+    y: 140,
+    duration: 1,
+  });
+  let tl21 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".sec5",
+      start: "top 30%",
+      end: "10% top",
+      scrub: 1,
+    },
+  });
+  tl21.from(".sec5_title .sec5_btn", {
+    opacity: 0,
+    y: 140,
+    duration: 1,
+  });
+
+  //  섹션 6
+  let tl22 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".sec6",
+      start: "top 40%",
+      end: "top 20%",
+      scrub: 1,
+    },
+  });
+  tl22.fromTo(
+    ".sec6_bg",
+    {
+      opacity: 0,
+      scale: 1.1,
+    },
+    {
+      opacity: 1,
+      scale: 1,
+      duration: 1,
+    }
+  );
+  tl22.fromTo(
+    ".sec6_title",
+    {
+      opacity: 0,
+      y: 40,
+    },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 2,
+    }
+  );
 });

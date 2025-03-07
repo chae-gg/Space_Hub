@@ -55,7 +55,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  transition: 0.3 ease-out;
   background: linear-gradient(var(--bg-color), var(--bg-color)),
     linear-gradient(
       45deg,
@@ -550,7 +549,7 @@ header .container h1 {
   letter-spacing: 1.8px;
 }
 
-.bottom_fiexd_icon {
+.bottom_fixed_icon {
   width: fit-content;
   height: fit-content;
   position: fixed;
@@ -561,12 +560,12 @@ header .container h1 {
   gap: 24px;
   z-index: 998;
 }
-.bottom_fiexd_icon p {
+.bottom_fixed_icon p {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 1.2px;
 }
-.bottom_fiexd_icon span {
+.bottom_fixed_icon span {
   width: 48px;
   height: 48px;
   display: inline-block;
@@ -576,12 +575,12 @@ header .container h1 {
   align-items: center;
   justify-content: center;
 }
-.bottom_fiexd_icon span img {
+.bottom_fixed_icon span img {
   width: 42px;
   height: 42px;
   transition: 0.3s ease-out;
 }
-.bottom_fiexd_icon:hover span img {
+.bottom_fixed_icon:hover span img {
   transform: rotate(270deg);
 }
 /* 섹션1 로켓 */
@@ -635,7 +634,7 @@ header .container h1 {
   flex-direction: column;
   justify-content: center;
   margin-left: 80px;
-  z-index: 1;
+  z-index: 3;
 }
 
 /* 섹션2 */
@@ -851,14 +850,13 @@ header .container h1 {
 }
 .sec4_text_1 {
   width: fit-content;
-  margin-top: 40px;
+  margin-top: 34px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .sec4_text_2 {
-  opacity: 0;
   width: fit-content;
   position: absolute;
   top: 50%;
@@ -868,16 +866,15 @@ header .container h1 {
   text-align: center;
 }
 .sec4_text_3 {
-  opacity: 0;
-  width: fit-content;
-  padding-top: 20px;
+  width: 100%;
+  margin-top: 52px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
 }
-.sec4_text_2 h2 {
+.sec4_text_2 .opactiy_box h2 {
   font-size: 31px;
   font-weight: 500;
   line-height: 1.8;
@@ -921,6 +918,19 @@ header .container h1 {
   transform: translateX(-50%);
   text-align: center;
 }
+.sec5_title h2 br {
+  display: none;
+}
+.sec5_title > p {
+  font-size: 20px;
+  margin-top: 80px;
+}
+.sec5_btn {
+  width: fit-content;
+  display: block;
+  margin: 0 auto;
+  margin-top: 60px;
+}
 
 /*  섹션 6  */
 .sec6 {
@@ -930,6 +940,7 @@ header .container h1 {
   top: 0;
   left: 0;
   background-color: #000;
+  overflow: hidden;
 }
 .sec6_bg {
   width: 100%;

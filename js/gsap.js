@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     {
       x: 500,
     },
-    { x: 0, duration: 1, delay: 2, ease: "power2.out" }
+    { x: 0, duration: 1, delay: 1.5, ease: "power2.out" }
   );
 
   //  메인 스크롤 이벤트
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     scrollTrigger: {
       trigger: ".sec1",
       start: "top 80%",
-      end: "60% 80%",
+      end: "40% 80%",
       scrub: 1,
     },
   });
@@ -240,14 +240,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // 섹션 3 이벤트
 
   // 섹션 4로 넘어가는 핀 이벤트
-  ScrollTrigger.create({
-    trigger: ".sec3",
-    start: "top top",
-    end: "bottom top",
-    pin: true,
-    pinSpacing: false,
+  gsap.to(".sec3", {
+    scrollTrigger: {
+      trigger: ".sec3",
+      start: "top top",
+      end: "+=300%",
+      scrub: true,
+      pin: true,
+      pinSpacing: false,
+    },
   });
-
   //  scroll_text_event h2
   let tl9 = gsap.timeline({
     scrollTrigger: {
@@ -316,16 +318,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
       trigger: ".sec4",
       start: "top 40%",
       end: "bottom bottom",
-
       scrub: 1,
     },
   });
   // 작은 행성 로테이트
   tl13.from(".sec4_space_wrap", {
     opacity: 0,
-    rotate: "1deg",
+    scale: 1.3,
+    rotate: "3deg",
     ease: "power2.out",
-    duration: 2,
+    duration: 4,
   });
   // 첫번쨰 타이틀 나오는 이벤트
   tl13.from(".sec4_text_1 span img", {
@@ -337,22 +339,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // 섹션 핀고정 및 투번째 타이틀 나오고 들어가는
   let tl14 = gsap.timeline({
     scrollTrigger: {
-      trigger: ".sec4",
+      trigger: ".sec4 ",
       start: "top top",
-      end: "+=100% top",
+      end: "+=120% top",
       scrub: 1,
       pin: true,
     },
   });
   tl14.to(".sec4_space_wrap", {
-    rotate: "-1deg",
+    rotate: "-3deg",
+    scale: 1,
     ease: "power2.out",
-    duration: 2,
+    duration: 4,
   });
   //  첫번째 타이틀 들어가는 이벤트
   let tl15 = gsap.timeline({
     scrollTrigger: {
-      trigger: ".sec4",
+      trigger: ".sec4 ",
       start: "top top",
       end: "bottom 50%",
       scrub: 1,
@@ -367,7 +370,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   let tl16 = gsap.timeline({
     scrollTrigger: {
-      trigger: ".sec4",
+      trigger: ".sec4 ",
       start: "top top",
       end: "bottom 30%",
       scrub: 1,
@@ -388,7 +391,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   let tl17 = gsap.timeline({
     scrollTrigger: {
-      trigger: ".sec4",
+      trigger: ".sec4 ",
       start: "top top",
       end: "bottom 10%",
       scrub: 1,
@@ -403,7 +406,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   let tl18 = gsap.timeline({
     scrollTrigger: {
-      trigger: ".sec4",
+      trigger: ".sec4 ",
       start: "top top",
       end: "bottom top",
       scrub: 1,
@@ -417,6 +420,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 
   // 섹션 5 스크롤 이벤트
+  let tlSec5 = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".sec5",
+      start: "top 50%",
+      end: "10% top",
+      scrub: 1,
+    },
+  });
+  tlSec5.from(".sec5 .sec5_bg", {
+    opacity: 0,
+    y: 100,
+    duration: 2,
+  });
+
   let tl19 = gsap.timeline({
     scrollTrigger: {
       trigger: ".sec5",
@@ -475,7 +492,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     },
     {
       opacity: 1,
-      scale: 1,
+      scale: 0.85,
       duration: 1,
     }
   );
@@ -492,3 +509,27 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   );
 });
+
+// 섹션 6 이미지 1024 부터 스케일 적용
+const videoBox = document.querySelector(".sec6_video_box");
+
+gsap.set(videoBox, { scale: 0.85 });
+
+function updateScale() {
+  let windowWidth = window.innerWidth;
+
+  if (windowWidth <= 1024) {
+    let scaleValue = Math.max(0.5, (windowWidth / 1024) * 0.85);
+    gsap.to(videoBox, {
+      scale: scaleValue,
+      duration: 0.5,
+      ease: "power2.out",
+    });
+  }
+}
+
+// 초기 실행
+updateScale();
+
+// 화면 크기 변경 시 적용
+window.addEventListener("resize", updateScale);

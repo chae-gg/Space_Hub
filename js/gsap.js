@@ -324,7 +324,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // 작은 행성 로테이트
   tl13.from(".sec4_space_wrap", {
     opacity: 0,
-    scale: 1.3,
+
     rotate: "3deg",
     ease: "power2.out",
     duration: 4,
@@ -492,7 +492,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     },
     {
       opacity: 1,
-      scale: 0.85,
+      scale: 1,
       duration: 1,
     }
   );
@@ -510,18 +510,34 @@ document.addEventListener("DOMContentLoaded", (event) => {
   );
 });
 
-// 섹션 6 이미지 1024 부터 스케일 적용
+// 섹션 6 이미지 1920 부터 768까지 스케일 적용
 const videoBox = document.querySelector(".sec6_video_box");
 
-gsap.set(videoBox, { scale: 0.85 });
+gsap.set(videoBox, { scale: 1 });
 
 function updateScale() {
   let windowWidth = window.innerWidth;
 
-  if (windowWidth <= 1024) {
-    let scaleValue = Math.max(0.5, (windowWidth / 1024) * 0.85);
+  if (windowWidth >= 768) {
+    // 768px 이상에서는 1에서 시작해 점진적으로 줄어듦
+    let scaleValue = Math.max(0.6, (windowWidth / 1920) * 1);
     gsap.to(videoBox, {
       scale: scaleValue,
+      duration: 0.5,
+      ease: "power2.out",
+    });
+  } else if (windowWidth <= 767 && windowWidth > 320) {
+    // 767px 이하에서는 0.85에서 다시 점진적으로 줄어듦
+    let scaleValue = Math.max(0.4, (windowWidth / 767) * 0.85);
+    gsap.to(videoBox, {
+      scale: scaleValue,
+      duration: 0.5,
+      ease: "power2.out",
+    });
+  } else {
+    // 최소 화면 크기 이하에서는 0.4 고정
+    gsap.to(videoBox, {
+      scale: 0.4,
       duration: 0.5,
       ease: "power2.out",
     });

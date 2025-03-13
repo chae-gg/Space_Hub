@@ -699,9 +699,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     if (width <= 1241 && width >= 768) {
       baseScale = 0.96 - (0.96 - 0.6) * ((1241 - width) / (1241 - 768));
-    } else {
+    } else if (width < 768 && width >= 480) {
       baseScale = 0.95 - (0.95 - 0.4) * ((768 - width) / (768 - 320));
     }
+
+    console.log(`Width: ${width}px, Base Scale: ${baseScale}`);
     return baseScale;
   }
 

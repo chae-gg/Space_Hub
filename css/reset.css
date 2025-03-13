@@ -200,8 +200,11 @@ li {
 }
 
 body {
-  font-size: 16px;
+  font-size: 100%;
   line-height: 1;
   color: #fff;
   font-family: "Noto Sans KR", serif;
+  overflow-x: hidden;
+
+  background-color: #000;
 }

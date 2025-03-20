@@ -24,6 +24,56 @@ document.addEventListener("DOMContentLoaded", (event) => {
       },
     }
   );
+
+  // 모바일 햄버거 버튼 애니메이션 클릭 이벤트
+  const menuBtn = document.querySelector(".menu_btn");
+  const mobileMenu = document.querySelector("#mobile_menu");
+  const headerLogo = document.querySelector("header h1");
+  const mobileGnbLi = document.querySelector(".mobile_gnb li");
+
+  let isOpen = false;
+  menuBtn.addEventListener("click", function () {
+    if (!isOpen) {
+      mobileMenu.style.display = "block";
+      headerLogo.style.display = "none";
+    } else {
+      mobileMenu.style.display = "none";
+      headerLogo.style.display = "block";
+    }
+  });
+
+  menuBtn.addEventListener("click", function () {
+    if (!isOpen) {
+      gsap.fromTo(
+        ".menu_btn span:first-child",
+        { y: 0, rotate: 0, scaleX: 1 },
+        { y: 0, rotate: -45, duration: 0.1, delay: 0.2, scaleX: 0.75 }
+      );
+      gsap.fromTo(
+        ".menu_btn span:last-child",
+        { y: 0, rotate: 0, scaleX: 1 },
+        { y: 0, rotate: 45, duration: 0.1, delay: 0.2, scaleX: 0.75 }
+      );
+
+      //gsap동작 끝나면 li slideup 애니메이션
+      const mobileMenuLi = document.querySelectorAll("#mobile_menu li");
+
+      mobileMenuLi.forEach((ele) => {});
+    } else {
+      gsap.fromTo(
+        ".menu_btn span:first-child",
+        { y: 0, rotate: 0, scaleX: 1 },
+        { y: -4, rotate: 0, duration: 0.1, delay: 0.2, scaleX: 1 }
+      );
+      gsap.fromTo(
+        ".menu_btn span:last-child",
+        { y: 0, rotate: 0, scaleX: 1 },
+        { y: 4, rotate: 0, duration: 0.1, delay: 0.2, scaleX: 1 }
+      );
+    }
+
+    isOpen = !isOpen;
+  });
   // 메인 섹션 😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎
 
   // 메인 라인 스케일
@@ -705,11 +755,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     if (width <= 1241 && width >= 768) {
       baseScale = 0.96 - (0.96 - 0.6) * ((1241 - width) / (1241 - 768));
-    } else if (width < 768 && width >= 480) {
+    } else if (width < 768 && width >= 320) {
       baseScale = 0.95 - (0.95 - 0.4) * ((768 - width) / (768 - 320));
     }
 
-    console.log(`Width: ${width}px, Base Scale: ${baseScale}`);
     return baseScale;
   }
 

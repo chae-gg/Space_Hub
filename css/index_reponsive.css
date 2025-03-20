@@ -4,7 +4,7 @@
     gap: 20px;
   }
   /* 공통 영역  */
-  .bottom_fixed_icon {
+  .sticky {
     display: none;
   }
   .scroll_text_event {
@@ -81,7 +81,7 @@
   }
 
   /* 공통 영역  */
-  .bottom_fixed_icon {
+  .sticky {
     display: none;
   }
   .scroll_text_event > p {
@@ -145,7 +145,7 @@
   .effect_box {
     display: none;
   }
-  .bottom_fixed_icon {
+  .sticky {
     display: none;
   }
   .main_bottom_scroll_text {
@@ -340,7 +340,7 @@
     display: block;
   }
   /* 공통 영역  */
-  .bottom_fixed_icon {
+  .sticky {
     display: none;
   }
 
@@ -416,7 +416,7 @@
   .effect_box {
     display: none;
   }
-  .bottom_fixed_icon {
+  .sticky {
     display: none;
   }
   .main_bottom_scroll_text {
@@ -760,7 +760,7 @@
     display: block;
   }
   /* 공통 영역  */
-  .bottom_fixed_icon {
+  .sticky {
     display: none;
   }
 
@@ -840,7 +840,7 @@
   .effect_box {
     display: none;
   }
-  .bottom_fixed_icon {
+  .sticky {
     display: none;
   }
   .main_bottom_scroll_text {

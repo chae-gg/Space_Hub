@@ -8,16 +8,22 @@ window.addEventListener("resize", () => {
 
 gsap.set(".video", { width: window.innerWidth, height: window.innerHeight });
 
-// 인트로 섹션
-gsap.fromTo(
-  ".intro_sec",
-  { opacity: 1 },
-  { opacity: 0, delay: 1.2, duration: 1 }
-);
-
 document.addEventListener("DOMContentLoaded", (event) => {
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
+  // 인트로 섹션
+  gsap.fromTo(
+    ".intro_sec",
+    { opacity: 1 },
+    {
+      opacity: 0,
+      delay: 1.2,
+      duration: 1,
+      onComplete: () => {
+        document.querySelector(".intro_sec").style.display = "none";
+      },
+    }
+  );
   // 메인 섹션 😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎😎
 
   // 메인 라인 스케일

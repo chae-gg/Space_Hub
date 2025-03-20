@@ -13,10 +13,8 @@ requestAnimationFrame(raf);
 let main = document.querySelector("main");
 let sticky = document.querySelector(".sticky");
 
-// main 요소의 getBoundingClientRect()를 사용하여 위치와 크기 구하기
 let mainRect = main.getBoundingClientRect();
 
-// 음수 마진이 있을 경우 이를 고려해 계산
 let marginBottom = parseFloat(window.getComputedStyle(main).marginBottom); // 음수 마진 값
 let mainHeightWithMargin = mainRect.height + marginBottom; // 음수 마진을 고려한 높이
 

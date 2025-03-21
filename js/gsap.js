@@ -23,12 +23,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   );
 
+  //  모바일 메뉴 햄버거버튼  이벤트
   // 모바일 햄버거 버튼 애니메이션 클릭 이벤트
   const menuBtn = document.querySelector(".menu_btn");
   const mobileMenu = document.querySelector("#mobile_menu");
   const headerLogo = document.querySelector("header h1");
-  const body = document.body;
-  const html = document.documentElement; // html 태그 선택
 
   // 모바일 메뉴에서 메인페이지 스크롤을 전파하지못하게
   let isOpen = false;

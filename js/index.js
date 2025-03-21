@@ -15,6 +15,7 @@ let sticky = document.querySelector(".sticky");
 // sticky의 높이 설정
 sticky.style.height = 12455 + "px";
 
+// 헤더 그라디언트
 const headerBg = document.querySelector("header");
 const hoverLi = document.querySelector("#gnb > ul > li:last-child");
 
@@ -26,3 +27,5 @@ hoverLi.addEventListener("mouseleave", function () {
   headerBg.style.height = "0px";
   headerBg.style.background = "linear-gradient(to bottom, #000, transparent)";
 });
+
+//

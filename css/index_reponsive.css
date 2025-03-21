@@ -74,13 +74,12 @@
     display: none;
   }
   .right_translation {
-    margin-top: 0px;
+    margin-top: 22px;
   }
   .right_translation a {
     display: none;
   }
   .menu_btn {
-    margin-top: 32px;
     width: 32px;
     display: block;
   }
@@ -264,10 +263,10 @@
   .sec4_text_1 {
     margin-top: 15px;
   }
-  .sec4_text_1 .opactiy_box img {
+  .sec4_text_1 .opacity_box img {
     width: 240px;
   }
-  .sec4_text_2 .opactiy_box h2 {
+  .sec4_text_2 .opacity_box h2 {
     font-size: 24px;
   }
   .sec4_text_2,
@@ -333,6 +332,7 @@
   header .container h1 {
     width: fit-content;
     height: fit-content;
+    margin-top: 15px;
   }
   header .container h1 img {
     width: 100px;
@@ -347,7 +347,7 @@
   .menu_btn {
     display: block;
     width: 32px;
-    margin-top: 35px;
+    margin-top: 9px;
   }
   /* 공통 영역  */
   .sticky {
@@ -578,7 +578,7 @@
   .sec4_btn {
     margin-top: 40px;
   }
-  .sec4_text_2 .opactiy_box h2 {
+  .sec4_text_2 .opacity_box h2 {
     font-size: 17px;
   }
   .sec4_space_wrap div {
@@ -758,6 +758,7 @@
   header .container h1 {
     width: fit-content;
     height: fit-content;
+    margin-top: 18px;
   }
   header .container h1 img {
     width: 100px;
@@ -766,11 +767,13 @@
   .right_translation a {
     display: none;
   }
-
+  .right_translation {
+    margin-top: 0px;
+  }
   .menu_btn {
     display: block;
     width: 32px;
-    margin-top: 35px;
+    margin-top: 12px;
   }
   .menu_btn span {
     width: 28px;
@@ -1009,7 +1012,7 @@
   .sec4_btn {
     margin-top: 40px;
   }
-  .sec4_text_2 .opactiy_box h2 {
+  .sec4_text_2 .opacity_box h2 {
     font-size: 17px;
   }
   .sec4_space_wrap div {
@@ -1175,18 +1178,25 @@
     background: #333;
   }
 }
+
+/* 햄버거 섹션 미디어 쿼리 */
+@media screen and (min-width: 1024px) {
+  #mobile_menu {
+    display: none !important;
+  }
+}
 @media screen and (max-width: 1023px) {
   /* 모바일 버튼 메뉴 */
   #mobile_menu {
-    height: auto;
-
+    height: 100vh;
+    overflow: auto;
+    box-sizing: border-box;
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    padding: 86px 40px;
-
+    padding: 86px 40px 40px;
     background-color: #000;
   }
   #mobile_menu > a {
@@ -1201,13 +1211,15 @@
     left: 30px;
   }
   .mobile_gnb {
-    width: auto;
+    width: 100%;
     height: fit-content;
+  }
+  .mobile_gnb span {
+    display: block;
   }
   .mobile_gnb > li > a > span {
     font-size: 24px;
     font-weight: 600;
-    margin-bottom: 14px;
   }
   .mobile_gnb > li {
     margin-bottom: 28px;
@@ -1216,6 +1228,7 @@
     display: flex;
     flex-wrap: wrap;
     height: fit-content;
+    margin-top: 14px;
   }
   .mobile_gnb li > ul li a span {
     font-size: 12px;
@@ -1250,14 +1263,25 @@
   }
   .mobile_bottom_text img {
     width: 58px;
+    cursor: pointer;
   }
   .mobile_img {
     margin-top: 40px;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
   }
   .mobile_img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+}
+@media screen and (max-width: 767px) {
+  #mobile_menu {
+    padding: 76px 16px 16px;
+  }
+  #mobile_menu > a {
+    top: 8px;
+    left: 6px;
   }
 }

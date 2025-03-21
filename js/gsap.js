@@ -6,8 +6,6 @@ window.addEventListener("resize", () => {
   }, 0); //
 });
 
-gsap.set(".video", { width: window.innerWidth, height: window.innerHeight });
-
 document.addEventListener("DOMContentLoaded", (event) => {
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -29,47 +27,95 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const menuBtn = document.querySelector(".menu_btn");
   const mobileMenu = document.querySelector("#mobile_menu");
   const headerLogo = document.querySelector("header h1");
-  const mobileGnbLi = document.querySelector(".mobile_gnb li");
+  const body = document.body;
+  const html = document.documentElement; // html 태그 선택
 
+  // 모바일 메뉴에서 메인페이지 스크롤을 전파하지못하게
   let isOpen = false;
+  document.querySelector("#mobile_menu").addEventListener(
+    "wheel",
+    (e) => {
+      e.stopPropagation();
+    },
+    { passive: false }
+  );
+
   menuBtn.addEventListener("click", function () {
     if (!isOpen) {
       mobileMenu.style.display = "block";
       headerLogo.style.display = "none";
+
+      gsap.fromTo(
+        ".menu_btn span:first-child",
+        { y: 16, rotate: 0, scaleX: 1 },
+        { y: 15, rotate: -45, duration: 0.1, delay: 0.2, scaleX: 0.75 }
+      );
+      gsap.fromTo(
+        ".menu_btn span:last-child",
+        { y: 15, rotate: 0, scaleX: 1 },
+        { y: 15, rotate: 45, duration: 0.1, delay: 0.2, scaleX: 0.75 }
+      );
+
+      // 바디 스크롤이 사라짐
+      const bodyScroll = document.querySelector("body");
+
+      bodyScroll.style.overflowY = "hidden";
+
+      //gsap동작 끝나면 li slideup 애니메이션
+      let mobileMenuLi = document.querySelectorAll(
+        "#mobile_menu .opacity_box span "
+      );
+
+      mobileMenuLi.forEach((ele) => {
+        gsap.fromTo(
+          ele,
+          {
+            y: 40,
+          },
+          {
+            y: 0,
+            duration: 0.5,
+          }
+        );
+      });
+      gsap.fromTo(
+        ".mobile_bottom_text",
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          delay: 0.3,
+          duration: 1,
+        }
+      );
+      gsap.fromTo(
+        ".mobile_img",
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          delay: 0.4,
+          duration: 1,
+        }
+      );
     } else {
       mobileMenu.style.display = "none";
       headerLogo.style.display = "block";
-    }
-  });
 
-  menuBtn.addEventListener("click", function () {
-    if (!isOpen) {
       gsap.fromTo(
         ".menu_btn span:first-child",
-        { y: 0, rotate: 0, scaleX: 1 },
-        { y: 0, rotate: -45, duration: 0.1, delay: 0.2, scaleX: 0.75 }
+        { y: 15, rotate: 0, scaleX: 1 },
+        { y: 11, rotate: 0, duration: 0.1, delay: 0.2, scaleX: 1 }
       );
       gsap.fromTo(
         ".menu_btn span:last-child",
-        { y: 0, rotate: 0, scaleX: 1 },
-        { y: 0, rotate: 45, duration: 0.1, delay: 0.2, scaleX: 0.75 }
+        { y: 15, rotate: 0, scaleX: 1 },
+        { y: 19, rotate: 0, duration: 0.1, delay: 0.2, scaleX: 1 }
       );
-
-      //gsap동작 끝나면 li slideup 애니메이션
-      const mobileMenuLi = document.querySelectorAll("#mobile_menu li");
-
-      mobileMenuLi.forEach((ele) => {});
-    } else {
-      gsap.fromTo(
-        ".menu_btn span:first-child",
-        { y: 0, rotate: 0, scaleX: 1 },
-        { y: -4, rotate: 0, duration: 0.1, delay: 0.2, scaleX: 1 }
-      );
-      gsap.fromTo(
-        ".menu_btn span:last-child",
-        { y: 0, rotate: 0, scaleX: 1 },
-        { y: 4, rotate: 0, duration: 0.1, delay: 0.2, scaleX: 1 }
-      );
+      const bodyScroll = document.querySelector("body");
+      bodyScroll.style.overflow = "visible";
     }
 
     isOpen = !isOpen;
@@ -562,7 +608,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       scrollTrigger: {
         trigger: ".sec4",
         start: "top top",
-        end: "+=120% top",
+        end: "+=115% top",
         scrub: 0.2,
         pin: true, // 핀 적용
         anticipatePin: 1,
@@ -583,19 +629,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
         y: 100,
         duration: 1,
       },
-      "0.3"
+      "0"
     );
     tlSec4Mo2.to(
       ".sec4_text_2 span h2",
       { opacity: 0, y: -100, duration: 2, delay: 1 },
-      "0.3"
+      "0.2"
     );
 
     // 세 번째 타이틀
     tlSec4Mo2.from(
       ".sec4_text_3 span h2",
       { opacity: 0, y: 100, duration: 2 },
-      "0.8"
+      "0.5"
     );
 
     // 버튼 등장
@@ -604,9 +650,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
       {
         opacity: 0,
         y: 100,
-        duration: 2,
+        duration: 1.5,
       },
-      "1.3"
+      "0.8"
     );
 
     let tlSec4Mo3 = gsap.timeline({
@@ -648,7 +694,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         scrub: 0.2,
       },
     });
-    tl19.from(".sec5_title .opactiy_box h2", {
+    tl19.from(".sec5_title .opacity_box h2", {
       opacity: 0,
       y: 100,
       duration: 2,
@@ -704,7 +750,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         scrub: 0.2,
       },
     });
-    tl19.from(".sec5_title .opactiy_box h2", {
+    tl19.from(".sec5_title .opacity_box h2", {
       opacity: 0,
       y: 100,
       duration: 2,
